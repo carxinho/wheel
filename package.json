@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/carxinho/gulu/issues"
   },
-  "homepage": "https://github.com/carxinho/gulu#readme"
+  "homepage": "https://github.com/carxinho/gulu#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
