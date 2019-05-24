@@ -11,23 +11,29 @@
 
 <body>
     <div id="app">
-        <g-button :loading="loading1" @click="loading1 = !loading1">
-            设置
-        </g-button>
-        <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
-            设置
-        </g-button>
-        <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
-            设置
-        </g-button>
-        <g-button-group>
-            <g-button icon="left">上一页</g-button>
-            <g-button>更多</g-button>
-            <g-button icon="right"  icon-position="right">下一页</g-button>
-        </g-button-group>
+        <g-input value="颂乐" disabled></g-input>
+        <g-input value="玟星" readonly></g-input>
+        <g-input value="辉人"></g-input>
+        <g-input value="华" error="姓名不能少于两个字"></g-input>
+        <div style="margin:20px;">
+            <g-button :loading="loading1" @click="loading1 = !loading1">
+                设置
+            </g-button>
+            <g-button icon="settings" :loading="loading2" @click="loading2 = !loading2">
+                设置
+            </g-button>
+            <g-button icon="settings" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
+                设置
+            </g-button>
+            <g-button-group>
+                <g-button icon="left">上一页</g-button>
+                <g-button>更多</g-button>
+                <g-button icon="right" icon-position="right">下一页</g-button>
+            </g-button-group>
+        </div>
+
     </div>
     <script src="./src/app.js"></script>
-    <!-- <script src="//at.alicdn.com/t/font_1196223_bj5a9wd9eo7.js"></script> -->
 </body>
 
 </html>
