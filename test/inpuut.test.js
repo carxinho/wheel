@@ -67,7 +67,7 @@ describe('Inpt', () => {
                     const callback = sinon.fake();
                     vm.$on(eventName, callback)
                     let event = new Event(eventName)
-                    Object.defineProperties(
+                    Object.defineProperty(
                         event, 'target', {
                             value: { value: 'hi' }, enumerable: true
                         }
