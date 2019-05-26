@@ -15,6 +15,7 @@
         <g-input value="玟星" readonly></g-input>
         <g-input value="辉人"></g-input>
         <g-input value="华" error="姓名不能少于两个字"></g-input>
+        <g-input value="华" @change="inputChange"></g-input>
         <div style="margin:20px;">
             <g-button :loading="loading1" @click="loading1 = !loading1">
                 设置
