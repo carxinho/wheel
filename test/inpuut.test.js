@@ -49,7 +49,7 @@ describe('Inpt', () => {
                 }
             }).$mount()
             const useElement = vm.$el.querySelector('use')
-            expect(useElement[0].getAttribute('xlink:href')).to.equal('#i-error')
+            expect(useElement.getAttribute('xlink:href')).to.equal('#i-error')
             const errorMessage = vm.$el.querySelector('.errorMessage')
             expect(errorMessage.innerText).to.equal('错了')
         })
