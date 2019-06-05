@@ -1,16 +1,19 @@
 <template>
-    <div class="col" :class="`col-${span}`">
+    <div class="col" :class="[`col-${span}`, offset && `offset-${offset}`]">
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
-    props:{
-        span: {
-            type: [Number, String]
-        }
+  props: {
+    span: {
+      type: [Number, String]
+    },
+    offset: {
+      type: [Number, String]
     }
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +27,12 @@ export default {
   @for $n from 1 through $grid-columns {
     &.#{$class-prefix}#{$n} {
       width: percentage($n / $grid-columns);
+    }
+  }
+    $class-prefix: offset-;
+  @for $n from 1 through $grid-columns {
+    &.#{$class-prefix}#{$n} {
+      margin-left: percentage($n / $grid-columns);
     }
   }
 }
