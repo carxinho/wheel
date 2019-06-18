@@ -1,5 +1,5 @@
 <template>
-    <div class="col" :class="[`col-${span}`, offset && `offset-${offset}`]">
+    <div class="col" :class="[span && `col-${span}`, offset && `offset-${offset}`]" :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}">
         <slot></slot>
     </div>
 </template>
@@ -11,6 +11,11 @@ export default {
     },
     offset: {
       type: [Number, String]
+    }
+  },
+  data(){
+    return {
+      gutter: 0
     }
   }
 };
@@ -29,7 +34,7 @@ export default {
       width: percentage($n / $grid-columns);
     }
   }
-    $class-prefix: offset-;
+  $class-prefix: offset-;
   @for $n from 1 through $grid-columns {
     &.#{$class-prefix}#{$n} {
       margin-left: percentage($n / $grid-columns);

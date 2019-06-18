@@ -11,20 +11,22 @@
 
 <body>
     <div id="app">
-        <g-row>
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-        </g-row>
-        <g-row>
-            <g-col :span="2">2</g-col>
-            <g-col :span="20" :offset="2">22</g-col>
-        </g-row>
-        <g-row>
-            <g-col :span="2">2</g-col>
-            <g-col :span="8" :offset="2">22</g-col>
-            <g-col :span="11":offset="1">22</g-col>
+        <div>
+            <g-row :gutter="20">
+                <g-col>1</g-col>
+                <g-col>2</g-col>
+            </g-row>
+            <g-row>
+                <g-col :span="2">2</g-col>
+                <g-col :span="20" :offset="2">20</g-col>
+            </g-row>
+            <g-row>
+                <g-col :span="2">2</g-col>
+                <g-col :span="8" :offset="2">8</g-col>
+                <g-col :span="11" :offset="1">11</g-col>
 
-        </g-row>
+            </g-row>
+        </div>
         <g-input value="颂乐" disabled></g-input>
         <g-input value="玟星" readonly></g-input>
         <g-input value="辉人"></g-input>
