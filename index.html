@@ -11,15 +11,15 @@
 
 <body>
     <div id="app">
-        <g-row :gutter="20">
+        <!-- <g-row :gutter="20">
             <g-col>1</g-col>
             <g-col>2</g-col>
-        </g-row>
+        </g-row> -->
         <g-row>
-            <g-col :span="2">2</g-col>
-            <g-col :span="20" :offset="2">20</g-col>
+            <g-col :span="2" :phone="{span:8}" :ipad="{span:1}">2</g-col>
+            <g-col :span="20" :offset="2" :phone="{span:16}" :ipad="{span:23}">20</g-col>
         </g-row>
-        <g-row>
+        <!-- <g-row>
             <g-col :span="2">2</g-col>
             <g-col :span="8" :offset="2">8</g-col>
             <g-col :span="11" :offset="1">11</g-col>
@@ -46,7 +46,7 @@
                 <g-button>更多</g-button>
                 <g-button icon="right" icon-position="right">下一页</g-button>
             </g-button-group>
-        </div>
+        </div> -->
 
     </div>
     <script src="./src/app.js"></script>

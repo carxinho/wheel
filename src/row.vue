@@ -39,6 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .row {
+  // flex-wrap: wrap;
   border: 1px solid red;
   display: flex;
   &.align-left {

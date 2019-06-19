@@ -4,6 +4,12 @@
     </div>
 </template>
 <script>
+let validator = value => {
+  let keys = Object.keys(value);
+  return keys.every(key => {
+    return ["span", "offset"].includes(key);
+  });
+};
 export default {
   props: {
     span: {
@@ -11,6 +17,26 @@ export default {
     },
     offset: {
       type: [Number, String]
+    },
+    phone: {
+      type: Object,
+      validator
+    },
+    ipad: {
+      type: Object,
+      validator
+    },
+    narrowPc: {
+      type: Object,
+      validator
+    },
+    pc: {
+      type: Object,
+      validator
+    },
+    widePc: {
+      type: Object,
+      validator
     }
   },
   data() {
@@ -20,8 +46,18 @@ export default {
   },
   computed: {
     colClass() {
-      let { span, offset } = this;
-      return [span && `col-${span}`, offset && `offset-${offset}`];
+      let { span, offset, phone, ipad, narrowPc, pc, widePc } = this;
+      let phoneClass = [];
+
+      return [
+        span && `col-${span}`,
+        offset && `offset-${offset}`,
+        ...(phone ? [`col-phone-${phone.span}`] : []),
+        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
+        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
+        ...(pc ? [`col-pc-${pc.span}`] : []),
+        ...(widePc ? [`col-wide-pc-${widePc.span}`] : [])
+      ];
     },
     colStyle() {
       let { gutter } = this;
@@ -48,6 +84,76 @@ export default {
   @for $n from 1 through $grid-columns {
     &.#{$class-prefix}#{$n} {
       margin-left: percentage($n / $grid-columns);
+    }
+  }
+  @media (max-width: 576px) {
+    $class-prefix: col-phone-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        width: percentage($n / $grid-columns);
+      }
+    }
+    $class-prefix: offset-phone-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        margin-left: percentage($n / $grid-columns);
+      }
+    }
+  }
+  @media (min-width: 576px) and (max-width: 768px) {
+    $class-prefix: col-ipad-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        width: percentage($n / $grid-columns);
+      }
+    }
+    $class-prefix: offset-ipad-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        margin-left: percentage($n / $grid-columns);
+      }
+    }
+  }
+  @media (min-width: 769px) and (max-width: 992px) {
+    $class-prefix: col-narrow-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        width: percentage($n / $grid-columns);
+      }
+    }
+    $class-prefix: offset-narrow-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        margin-left: percentage($n / $grid-columns);
+      }
+    }
+  }
+  @media (min-width: 993px) and (max-width: 1200px) {
+    $class-prefix: col-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        width: percentage($n / $grid-columns);
+      }
+    }
+    $class-prefix: offset-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        margin-left: percentage($n / $grid-columns);
+      }
+    }
+  }
+  @media (min-width: 1201px) {
+    $class-prefix: col-wide-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        width: percentage($n / $grid-columns);
+      }
+    }
+    $class-prefix: offset-wide-pc-;
+    @for $n from 1 through $grid-columns {
+      &.#{$class-prefix}#{$n} {
+        margin-left: percentage($n / $grid-columns);
+      }
     }
   }
 }
