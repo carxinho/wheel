@@ -24,7 +24,7 @@ export default {
       return [span && `col-${span}`, offset && `offset-${offset}`];
     },
     colStyle() {
-      let {gutter} = this
+      let { gutter } = this;
       return {
         paddingLeft: gutter / 2 + "px",
         paddingRight: gutter / 2 + "px"
@@ -36,10 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-  height: 100px;
-  background: gray;
-  border: 1px solid red;
-  width: 50%;
+  min-height: 100px;
   $grid-columns: 24;
   $class-prefix: col-;
   @for $n from 1 through $grid-columns {
