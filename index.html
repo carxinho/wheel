@@ -10,14 +10,36 @@
 </head>
 
 <body>
+    <style>
+    .demo{
+        border: 1px solid red;
+        height: 100px;
+    }
+    </style>
     <div id="app">
         <!-- <g-row :gutter="20">
             <g-col>1</g-col>
             <g-col>2</g-col>
         </g-row> -->
         <g-row>
-            <g-col :span="24" :ipad="{span:1}">2</g-col>
-            <g-col :span="24" :ipad="{span:23}">20</g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
+            <g-col :span="24" :ipad="{span:12}" :narrow-pc="{span:8}">
+                <div class="demo"></div>
+            </g-col>
         </g-row>
         <!-- <g-row>
             <g-col :span="2">2</g-col>
