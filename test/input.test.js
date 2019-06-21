@@ -5,7 +5,7 @@ import Input from '../src/input'
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
-describe('Inpt', () => {
+describe('Input', () => {
     it('存在.', () => {
         expect(Input).to.exist
     })
@@ -40,7 +40,7 @@ describe('Inpt', () => {
                 }
             }).$mount()
             const inputElements = vm.$el.querySelector('input')
-            expect(inputElements.readOnly).to.equal(true)
+            expect(inputElements. readOnly).to.equal(true)
         })
         it('可以接收 error', () => {
             vm = new Constructor({
