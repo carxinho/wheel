@@ -47,9 +47,13 @@ export default {
         span && `col-${span}`,
         offset && `offset-${offset}`,
         ...(ipad ? [`col-ipad-${ipad.span}`] : []),
+        ...(ipad ? [`offset-ipad-${ipad.offset}`] : []),
         ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
+        ...(narrowPc ? [`offset-narrow-pc-${narrowPc.offset}`] : []),
         ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(widePc ? [`col-wide-pc-${widePc.span}`] : [])
+        ...(pc ? [`offset-pc-${pc.offset}`] : []),
+        ...(widePc ? [`col-wide-pc-${widePc.span}`] : []),
+        ...(widePc ? [`offset-wide-pc-${widePc.offset}`] : [])
       ];
     },
     colStyle() {
@@ -79,7 +83,7 @@ export default {
       margin-left: percentage($n / $grid-columns);
     }
   }
-  @media (min-width: 577px ){
+  @media (min-width: 577px) {
     $class-prefix: col-ipad-;
     @for $n from 1 through $grid-columns {
       &.#{$class-prefix}#{$n} {
@@ -93,7 +97,7 @@ export default {
       }
     }
   }
-  @media (min-width: 769px){
+  @media (min-width: 769px) {
     $class-prefix: col-narrow-pc-;
     @for $n from 1 through $grid-columns {
       &.#{$class-prefix}#{$n} {
@@ -107,7 +111,7 @@ export default {
       }
     }
   }
-  @media (min-width: 993px){
+  @media (min-width: 993px) {
     $class-prefix: col-pc-;
     @for $n from 1 through $grid-columns {
       &.#{$class-prefix}#{$n} {
