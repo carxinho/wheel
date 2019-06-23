@@ -4,11 +4,11 @@
     </div>
     
 </template>
-<style lang="scss" scoped>
-
-</style>
 <script>
 export default {
     name:'wheelSider'
 }
 </script>
+<style lang="scss" scoped>
+
+</style>

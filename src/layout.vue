@@ -4,16 +4,6 @@
     </div>
     
 </template>
-<style lang="scss" scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  &.hasSider {
-    flex-direction: row;
-  }
-}
-</style>
 <script>
 export default {
   data() {
@@ -32,3 +22,14 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  &.hasSider {
+    flex-direction: row;
+  }
+}
+</style>
+
