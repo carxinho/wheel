@@ -12,7 +12,7 @@ export default {
     align: {
       type: String,
       validator(value) {
-        return ["left", "right", "center"].includes(value);
+        return ["left", "right", "center"].indexOf(value) >= 0;
       }
     }
   },
@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .row {
-   flex-wrap: wrap;
+  flex-wrap: wrap;
   border: 1px solid red;
   display: flex;
   &.align-left {

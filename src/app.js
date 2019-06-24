@@ -45,10 +45,11 @@ new Vue({
                     text: 'Close',
                     callback: () => {
                         console.log('had been closed')
-
+    
                     }
                 },
-                enablehtml:true
+                enablehtml:true,
+                position: 'middle'
             })
         }
     }
