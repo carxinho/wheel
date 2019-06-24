@@ -15,7 +15,7 @@ import plugin from './plugin'
 
 Vue.component('g-button', Button)
 Vue.component('g-icon', Icon)
-Vue.component('g-button-group',ButtonGroup)
+Vue.component('g-button-group', ButtonGroup)
 Vue.component('g-input', Input)
 Vue.component('g-row', Row)
 Vue.component('g-col', Col)
@@ -35,12 +35,21 @@ new Vue({
         loading3: false,
         message: 'hi'
     },
-    created(){
-        
+    created() {
+
     },
     methods: {
-        showToast(){
-            this.$toast('mdkfskdfksdfklsdlkfmslkdflskdmflks')
+        showToast() {
+            this.$toast('mamamoo', {
+                closeButton: {
+                    text: 'Close',
+                    callback: () => {
+                        console.log('had been closed')
+
+                    }
+                },
+                enablehtml:true
+            })
         }
     }
 })
