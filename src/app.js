@@ -14,7 +14,7 @@ import Toast from './toast'
 import plugin from './plugin'
 import Tabs from './tabs'
 import TabsBody from './tabs-body'
-import TabsHeader from './tabs-head'
+import TabsHead from './tabs-head'
 import TabsItem from './tabs-item'
 import TabsPane from './tabs-pane'
 

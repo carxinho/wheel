@@ -5,9 +5,15 @@
 </template>
 <script>
 export default {
-    
-}
+  inject: ["eventBus"],
+  created() {
+    this.eventBus.$on("selected.sync", (name) => {
+      console.log(name);
+    });
+  },
+};
 </script>
 <style lang="scss" scoped>
-.tabs-pane{}
+.tabs-pane {
+}
 </style>

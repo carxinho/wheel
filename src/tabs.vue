@@ -4,11 +4,12 @@
     </div>
 </template>
 <script>
+import Vue from "Vue";
 export default {
   props: {
     selected: {
       type: String,
-      required: true
+      required: false
     },
     direction: {
       type: String,
@@ -17,6 +18,16 @@ export default {
         return ["horizontal", "vertical"].indexOf(value) >= 0;
       }
     }
+  },
+  data() {
+    return {
+      eventBus: new Vue()
+    };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    };
   }
 };
 </script>
