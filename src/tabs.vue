@@ -28,6 +28,9 @@ export default {
     return {
       eventBus: this.eventBus
     };
+  },
+  mounted(){
+    this.eventBus.$emit('selected.sync',this.selected)
   }
 };
 </script>

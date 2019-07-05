@@ -1,11 +1,16 @@
 <template>
-    <div class="tabs-item" @click="xxx">
+    <div class="tabs-item" @click="xxx" :class="classes">
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
   inject: ["eventBus"],
+  data(){
+    return {
+      active: false
+    }
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -18,8 +23,15 @@ export default {
   },
   created() {
     this.eventBus.$on("selected.sync", (name) => {
-      console.log(name);
+      this.active = name ===this.name
     });
+  },
+  computed:{
+    classes(){
+      return {
+        active : this.active
+      }
+    }
   },
   methods: {
     xxx() {
@@ -30,6 +42,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tabs-item {
-    flex: 1;
+    flex-shrink: 0;
+    padding: 0 2em;
 }
 </style>
