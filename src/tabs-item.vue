@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name:'WheelTabsItem',
   inject: ["eventBus"],
   data(){
     return {
@@ -22,9 +23,9 @@ export default {
     }
   },
   created() {
-    this.eventBus.$on("selected.sync", (name) => {
-      this.active = name ===this.name
-    });
+    this.eventBus.$on('update:selected', (name) => {
+      this.active = name === this.name;
+    })
   },
   computed:{
     classes(){
@@ -35,12 +36,13 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit("selected.sync", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
+$blue: blue;
 .tabs-item {
     flex-shrink: 0;
     padding: 0 2em;
@@ -48,5 +50,9 @@ export default {
     height: 100%;
     display: flex;
     align-items: center;
+    &.active{
+      color: $blue;
+      font-weight: bold;
+    }
 }
 </style>

@@ -25,9 +25,9 @@ export default {
     }
   },
   created() {
-    this.eventBus.$on("selected.sync", name => {
-      this.active = name ===this.name
-      })
+    this.eventBus.$on("update:selected", (name) => {
+      this.active = name === this.name
+    })
   }
 };
 </script>

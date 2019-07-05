@@ -29,8 +29,19 @@ export default {
       eventBus: this.eventBus
     };
   },
-  mounted(){
-    this.eventBus.$emit('selected.sync',this.selected)
+  mounted () {
+    this.eventBus.$emit('update:selected', this.selected)
+    this.$children.forEach((vm) => {
+      if (vm.$options.name === 'WheelTabsHead') {
+        vm.$children.forEach((childVm) => {
+          if (childVm.$options.name === 'WheelTabsItem'
+            && childVm.name === this.selected) {
+            console.log('line', this.selected, childVm)
+            this.eventBus.$emit('update:selected', this.selected, childVm)
+          }
+        })
+      }
+    })
   }
 };
 </script>
