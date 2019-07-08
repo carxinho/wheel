@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]:true}">
       <slot name="content"></slot>
     </div>
@@ -13,7 +13,9 @@
 export default {
   name: "WheelPopover",
   data() {
-    return { visible: false };
+    return { 
+      visible: false,
+    };
   },
   props: {
     position: {
@@ -22,7 +24,45 @@ export default {
       validator (value) {
         return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
       }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator (value) {
+        return ['click', 'hover'].indexOf(value) >= 0
+      }
     }
+  },
+  mounted(){
+      if (this.trigger === 'click') {
+        this.$refs.popover.addEventListener('click', this.onClick)
+      } else {
+        this.$refs.popover.addEventListener('mouseenter', this.open)
+        this.$refs.popover.addEventListener('mouseleave', this.close)
+      }
+    },
+    destroyed () {
+      if (this.trigger === 'click') {
+        this.$refs.popover.removeEventListener('click', this.onClick)
+      } else {
+        this.$refs.popover.removeEventListener('mouseenter', this.open)
+        this.$refs.popover.removeEventListener('mouseleave', this.close)
+      }
+  },
+  computed:{
+    openEvent(){
+      if (this.trigger === 'click'){
+        return 'click'
+      }else{
+        'mouseenter'
+      }
+    },
+    closeEvent(){
+      if (this.trigger === 'click'){
+        return 'click'
+      }else{
+        'mouseleave'
+      }    }
   },
   methods: {
     positionContent() {
@@ -111,7 +151,7 @@ $border-radius: 4px;
       transform: translateY(-100%);
       margin-top: -10px;
       &::before, &::after {
-        left: 3px;
+        left: 1em;
       }
       &::before {
         border-top-color: black;
@@ -125,7 +165,7 @@ $border-radius: 4px;
     &.position-bottom {
       margin-top: 10px;
       &::before, &::after {
-        left: 3px;
+        left: 1em;
       }
       &::before {
         border-bottom-color: black;
