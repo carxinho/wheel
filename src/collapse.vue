@@ -12,7 +12,7 @@ export default {
       default: false
     },
     selected:{
-      type: String
+      type: Array
     }
   },
   data(){
@@ -22,16 +22,27 @@ export default {
   },
   provide(){
     return {
-      eventBus: this.eventBus  
+      eventBus: this.eventBus
     }
   },
   mounted(){
     this.eventBus.$emit('update:selected', this.selected)
-    this.eventBus.$on('update:selected', (name) =>{
-      this.$emit('update:selected', name)
-    })
-    this.$children.forEach((vm) =>{
-      vm.single = this.single
+      this.eventBus.$on('update:addSelected', (name) => {
+        let selectedTabs = this.selected
+        if (this.single) {
+          selectedTabs = [name]
+        } else {
+          selectedTabs.push(name)
+        }
+        this.eventBus.$emit('update:selected', selectedTabs)
+        this.$emit('update:selected', selectedTabs)
+      })
+      this.eventBus.$on('update:removeSelected', (name) => {
+        let selectedTabs = this.selected
+        let index = selectedTabs.indexOf(name)
+        selectedTabs.splice(index, 1)
+        this.eventBus.$emit('update:selected', selectedTabs)
+        this.$emit('update:selected', selectedTabs)
     })
   }
 }
