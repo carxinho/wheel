@@ -29,14 +29,14 @@ export default {
   methods:{
     toggle(){
       if(this.open){
-        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name)
+        this.eventBus.$emit('update:removeSelected', this.name)
       }else{
-        this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
+        this.eventBus.$emit('update:addSelected', this.name)
       }
     }
   },
   mounted(){
-    this.eventBus && this.eventBus.$on('update:selected', (names) => {
+    this.eventBus.$on('update:selected', (names) => {
       if (names.indexOf(this.name) >= 0) {
         this.open = true
       }else{
