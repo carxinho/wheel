@@ -19,7 +19,7 @@
     *,*::before,*::after{box-sizing: border-box;}
     ```
     IE 8 及以上浏览器均支持此样式。
-    你还需要设置默认颜色等变量（后续会修改）
+    
     ```
     html {
         --button-height: 32px;
