@@ -43,40 +43,40 @@ $border-color-hover:#666;
     100% { transform: rotate(360deg); }
 
 }
-    .g-button {
-        font-size: $font-size;
-        height: $button-height;
-        padding: 0 0.9em;
-        border-radius: $border-radius;
-        border: 1px solid $border-color;
-        background: $button-bg;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        &:hover{
-            border-color: $border-color-hover;
+.g-button {
+    font-size: $font-size;
+    height: $button-height;
+    padding: 0 0.9em;
+    border-radius: $border-radius;
+    border: 1px solid $border-color;
+    background: $button-bg;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    &:hover{
+        border-color: $border-color-hover;
+    }
+    &:active{
+        background: $button-active-bg;
+    }
+    &:focus{
+    outline: none;
+    }
+    .icon{ margin-right: 0.3em;}
+    &.icon-right{
+        .icon{
+            order: 2;
+            margin-left: 0.3em;
+            margin-right: 0;
         }
-        &:active{
-            background: $button-active-bg;
-        }
-        &:focus{
-        outline: none;
-        }
-        .icon{ margin-right: 0.3em;}
-        &.icon-right{
-            .icon{
-                order: 2;
-                margin-left: 0.3em;
-                margin-right: 0;
-            }
-            .content{
-                order: 1;
-            }
-        }
-        .loading{
-            animation: spin 1s infinite linear;
+        .content{
+            order: 1;
         }
     }
+    .loading{
+        animation: spin 1s infinite linear;
+    }
+}
 </style>
 
