@@ -4,20 +4,8 @@ title: Button - 按钮
 
 # Button - 按钮
 
-### :books: 使用方法
-
-引入需要的组件并声明(注意更新文件所在路径)：
-```vue
-import ButtonGroup from 'path/button-group'
-import Button from 'path/button'
-export default {
-  components: {
-    'g-button': Button,
-    'g-button-group': ButtonGroup
-  }
-}
-
-```
+### :books: 简述
+常用的基础按钮及按钮组，用于操作触发事件
 
 ### :chestnut: 举例  
 <ClientOnly>

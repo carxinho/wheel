@@ -4,26 +4,8 @@ title: Layout - 布局
 
 # Layout - 布局 
 
-### :books: 使用方法
-
-引入需要的组件并声明(注意更新文件所在路径)：
-```vue
-  import Layout from 'path/layout'
-  import Header from 'path/header'
-  import Content from 'path/content'
-  import Footer from 'path/footer'
-  import Sider from 'path/sider'
-  export default {
-    components: {
-      'g-layout': Layout,
-      'g-header': Header,
-      'g-content': Content,
-      'g-footer': Footer,
-      'g-sider': Sider
-    },
-  }
-
-```
+### :books: 简述
+常见的几种布局
 
 ### :chestnut: 举例  
 <ClientOnly>
