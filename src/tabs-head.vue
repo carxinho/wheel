@@ -15,8 +15,10 @@ export default {
     this.eventBus.$on('update:selected', (item, vm) =>{
       if (vm) {
         let {width, height, top, left} = vm.$el.getBoundingClientRect()
+        let parentLeft = vm.$parent.$el.getBoundingClientRect().left
+                console.log(parentLeft)
         this.$refs.line.style.width = `${width}px`
-        this.$refs.line.style.left = `${left}px`
+        this.$refs.line.style.left = `${left - parentLeft}px`
       }
     })
   }

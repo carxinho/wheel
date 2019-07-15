@@ -10,13 +10,6 @@ export default {
     selected: {
       type: String,
       required: false
-    },
-    direction: {
-      type: String,
-      default: "horizontal",
-      validator(value) {
-        return ["horizontal", "vertical"].indexOf(value) >= 0;
-      }
     }
   },
   data() {
@@ -42,7 +35,7 @@ export default {
           vm.$children.forEach((childVm) => {
             if (childVm.$options.name === 'WheelTabsItem'
             && childVm.name === this.selected) {
-              this.eventBus.$emit('update:selected', this.selected, childVm)
+              this.eventBus.$emit('update:selected', this.selected,  childVm)
           }
         })
       }
