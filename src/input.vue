@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <input :value="value" type="text" :disabled="disabled" :readonly="readonly" :class="{error}"
+        <input :value="value" type="text" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" :class="{error}"
          @change="$emit('change', $event.target.value)"
          @input="$emit('input', $event.target.value)"
          @focus="$emit('focus', $event.target.value)"
@@ -18,6 +18,9 @@ export default {
   components: { Icon },
   props: {
     value: {
+      type: String
+    },
+    placeholder: {
       type: String
     },
     disabled: {
