@@ -7,7 +7,7 @@ export default {
             if (currentToast) {
                 currentToast.close()
             }
-            currentToast = createToast(Vue, message, { propsData: toastOptions })
+            currentToast = createToast(Vue, message, toastOptions)
         }
     }
 }

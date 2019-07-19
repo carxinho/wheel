@@ -4,10 +4,13 @@
             <slot v-if="!enablehtml"></slot>
             <div v-else v-html="$slots.default[0]"></div>
         </div>
-        <div class="line" ref="line"></div>
-        <span class="close" v-if="closeButton" @click="onClickClose">    
+        <div class="buttonWrapper" v-if="closeButton">
+          <div class="line" ref="line"></div>
+          <span class="close" @click="onClickClose">    
             {{closeButton.text}}    
-        </span>
+          </span>
+        </div>
+
     </div>
 </template>
 <script>
@@ -105,6 +108,7 @@ $animation-duration: 300ms;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
+  z-index:30;
   &.position-top {
     top: 0;
   }
@@ -118,14 +122,16 @@ $animation-duration: 300ms;
   .message {
     padding: 8px 0;
   }
-  .close {
-    padding-left: 16px;
-    flex-shrink: 0;
-  }
-  .line {
-    margin-left: 16px;
-    border: 1px solid #666;
-    height: 100%;
+  .buttonWrapper{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    .line {
+      margin-left: 16px;
+      margin-right: 16px;
+      border: 1px solid #666;
+      height: 100%;
+    }
   }
 }
 </style>
