@@ -1,10 +1,10 @@
 <template>
     <div class="col" :class="colClass" :style="colStyle">
-        <slot></slot>
+      <slot></slot>
     </div>
 </template>
 <script>
-let validator = value => {
+let validator = (value) => {
   let keys = Object.keys(value);
   return keys.every(key => {
     return ["span", "offset"].includes(key);
@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-  min-height: 100px;
+  min-height: 30px;
   $grid-columns: 24;
   $class-prefix: col-;
   @for $n from 1 through $grid-columns {
