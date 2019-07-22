@@ -1,5 +1,5 @@
 <template>
-    <div class="toast" ref="toast" :class="toastClasses">
+  <div class="toast" ref="toast" :class="toastClasses">
         <div class="message">
             <slot v-if="!enablehtml"></slot>
             <div v-else v-html="$slots.default[0]"></div>
