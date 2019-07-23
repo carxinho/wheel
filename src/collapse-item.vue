@@ -4,7 +4,7 @@
     {{title}}
   </div>
   <div class="content" v-if="open">
-      <slot></slot>
+    <slot></slot>
   </div>
 </div>
 </template>
@@ -16,7 +16,7 @@ export default {
       required:true
     },
     name:{
-      type: String,
+      type: Number,
       required: true
     }
   },
@@ -37,6 +37,8 @@ export default {
   },
   mounted(){
     this.eventBus.$on('update:selected', (names) => {
+      console.log('this.name', this.name)
+      console.log('names', names)
       if (names.indexOf(this.name) >= 0) {
         this.open = true
       }else{
